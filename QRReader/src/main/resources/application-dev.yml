@@ -1,0 +1,19 @@
+server:
+  port: 8080
+ 
+spring:
+  datasource:
+    username: root
+    password: zzh012300
+    url: jdbc:mysql://localhost:3306/financedb?serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+ 
+mybatis:
+  mapper-locations: classpath:mapping/*Mapping.xml
+ 
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper : debug

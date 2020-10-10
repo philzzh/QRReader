@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.finance.mywork.mapper.BillMapper">
+ 
+    <resultMap id="BaseResultMap" type="com.finance.mywork.entity.Bill">
+        <result column="id" jdbcType="VARCHAR" property="id" />
+        <result column="reimburser" jdbcType="VARCHAR" property="reimburser" />
+        <result column="rdate" jdbcType="DATE" property="rdate" />
+    </resultMap>
+ 
+    <select id="selectBillById" resultType="com.finance.mywork.entity.Bill">
+        select * from bill_t where id = #{id}
+    </select>
+ 
+ 	<select id="selectBill" resultType="com.finance.mywork.entity.Bill">
+        select * from bill_t order by rdate desc
+    </select>
+    
+    <delete id="deleteBillById">
+        delete from bill_t where id = #{id}
+    </delete>
+ 
+ 	<insert id="insertBill" parameterType="com.finance.mywork.entity.Bill">
+ 		insert into bill_t (id, reimburser,rdate)
+    values (#{id,jdbcType=VARCHAR}, #{reimburser,jdbcType=VARCHAR}, #{rdate,jdbcType=DATE})
+ 	</insert>
+</mapper>
