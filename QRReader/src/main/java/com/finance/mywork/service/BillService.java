@@ -33,8 +33,16 @@ public class BillService {
     	return billMapper.selectBill();
     }
     
+    public List<Bill> getBillByIndex(int index) {
+    	return billMapper.selectBillByIndex(index);
+    }
+    
     public void deleteBillById(String id) {
     	billMapper.deleteBillById(id);
+    }
+    
+    public int getBillCount() {
+    	return billMapper.selectBillCount();
     }
     
 }

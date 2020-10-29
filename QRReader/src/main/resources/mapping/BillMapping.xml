@@ -16,6 +16,17 @@
         select * from bill_t order by rdate desc
     </select>
     
+    <select id="selectBillCount" resultType="java.lang.Integer">
+        select count(*) from bill_t
+    </select>
+    
+    <select id="selectBillByIndex" parameterType="java.lang.Integer" resultType="com.finance.mywork.entity.Bill">
+        select * from bill_t order by rdate desc 
+        <if test="index != null and index != ''">
+            limit #{index,jdbcType=INTEGER}
+        </if>
+    </select>
+    
     <delete id="deleteBillById">
         delete from bill_t where id = #{id}
     </delete>

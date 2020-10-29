@@ -30,9 +30,19 @@ public class BillController {
         return billService.getBillById(id);
     }
     
+    @RequestMapping("/getBilltoIndex")
+    public List<Bill> getBillByIndex(Integer index){
+        return billService.getBillByIndex(index);
+    }
+    
     @GetMapping("/scan")
 	public String scan(String reimburser , String id) {
 		return billService.checkInsertBill(new Bill(id, reimburser, new Date()));
+	}
+    
+    @RequestMapping("/getBillCount")
+	public int getBillCount() {
+		return billService.getBillCount();
 	}
     
     @GetMapping("/delete")

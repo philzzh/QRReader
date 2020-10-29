@@ -15,6 +15,10 @@ public interface BillMapper {
 	
 	List<Bill> selectBill();
 	
+	List<Bill> selectBillByIndex(Integer index);
+	
 	void deleteBillById(String id);
+	
+	int selectBillCount();
 	
 }
